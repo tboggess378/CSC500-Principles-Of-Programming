@@ -1,5 +1,6 @@
 from ItemToPurchase import *
 
+
 # Description: Finds total cost of items in a shopping cart
 # Inputs: Object list containing items
 # Outputs: cost per item, total cost
