@@ -1,4 +1,4 @@
-from ItemToPurchase import *
+from shopping_cart_item import *
 
 
 # Description: Finds total cost of items in a shopping cart
