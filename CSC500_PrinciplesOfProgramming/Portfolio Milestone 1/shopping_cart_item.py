@@ -1,33 +1,29 @@
 class ItemToPurchase:
     # Inputs: name, price, quantity
     # Defaults: name = none, price = 0.00, quantity = 0
-    def __init__(self, name='none', price=0.00, quantity=0):
-        self._item_name = name
-        self._item_price = price
-        self._item_quantity = quantity
+    def __init__(self, item_name='none', item_price=0.00, item_quantity=0):
+        self._item_name = item_name
+        self._item_price = item_price
+        self._item_quantity = item_quantity
 
     # Gets item name
     @property
     def item_name(self):
-        print('Getter method for item name called.')
         return self._item_name
 
     # Gets item price
     @property
     def item_price(self):
-        print('Getter method for item price called.')
         return self._item_price
 
     # Gets item quantity
     @property
     def item_quantity(self):
-        print('Getter method for item quantity called.')
         return self._item_quantity
 
     # Sets item name
     @item_name.setter
     def item_name(self, name):
-        print('Setter method for item name called.')
         if len(name) > 0:
             self._item_name = name
         else:
@@ -36,7 +32,6 @@ class ItemToPurchase:
     # Sets item price
     @item_price.setter
     def item_price(self, price):
-        print('Setter method for item price called.')
         if price > 0:
             self._item_price = price
         else:
@@ -45,7 +40,6 @@ class ItemToPurchase:
     # Sets item quantity
     @item_quantity.setter
     def item_quantity(self, quantity):
-        print('Setter method for item quantity called.')
         if quantity > 0:
             self._item_quantity = quantity
         else:
