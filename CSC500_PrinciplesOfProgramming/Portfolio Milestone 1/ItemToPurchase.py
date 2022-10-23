@@ -1,47 +1,64 @@
 class ItemToPurchase:
-    def __init__(self, item_name='none', item_price=0.00, item_quantity=0):
-        self.item_name = item_name
-        self.item_price = item_price
-        self.item_quantity = item_quantity
+    # Inputs: name, price, quantity
+    # Defaults: name = none, price = 0.00, quantity = 0
+    def __init__(self, name='none', price=0.00, quantity=0):
+        self._item_name = name
+        self._item_price = price
+        self._item_quantity = quantity
 
+    # Gets item name
     @property
     def item_name(self):
-        return self.item_name
+        print('Getter method for item name called.')
+        return self._item_name
 
+    # Gets item price
     @property
     def item_price(self):
-        return self.item_price
+        print('Getter method for item price called.')
+        return self._item_price
 
+    # Gets item quantity
     @property
     def item_quantity(self):
-        return self.item_quantity
+        print('Getter method for item quantity called.')
+        return self._item_quantity
 
+    # Sets item name
     @item_name.setter
-    def item_name(self, item_name):
-        if len(item_name) > 0:
-            self.item_name = item_name
+    def item_name(self, name):
+        print('Setter method for item name called.')
+        if len(name) > 0:
+            self._item_name = name
         else:
-            self.item_name = 'none'
+            self._item_name = 'none'
 
+    # Sets item price
     @item_price.setter
-    def item_price(self, item_price):
-        if item_price > 0:
-            self.item_price = item_price
+    def item_price(self, price):
+        print('Setter method for item price called.')
+        if price > 0:
+            self._item_price = price
         else:
             raise ValueError('Item price must be greater than 0.')
 
+    # Sets item quantity
     @item_quantity.setter
-    def item_quantity(self, item_quantity):
-        if item_quantity > 0:
-            self.item_quantity = item_quantity
+    def item_quantity(self, quantity):
+        print('Setter method for item quantity called.')
+        if quantity > 0:
+            self._item_quantity = quantity
         else:
             raise ValueError('Item quantity must be greater than 0 to purchase.')
 
+    # Description: Prints total price per item based on quantity
+    # Inputs: none
+    # Outputs: String in format
+    # item_name item_quantity @ item_price = item_total
     def print_item_cost(self):
-        item_name = self.get_item_name()
-        item_price = self.get_item_price()
-        item_quantity = self.get_item_quantity()
+        item_name = self._item_name
+        item_price = self._item_price
+        item_quantity = self._item_quantity
         total_cost = item_price * item_quantity
 
-        print('RECEIPT\n\n')
         print(f'{item_name} {item_quantity:.0f} @ ${item_price:.2f} = ${total_cost:.2f}')
