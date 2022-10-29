@@ -18,23 +18,20 @@ def main():
     # Shopping cart to contain all items to purchase
     shopping_cart = []
 
-    try:
-        # Takes input from user for each item, price, and quantity
-        # Stores item objects to a list
-        for i in range(2):
-            print(f'Item {i + 1}')
-            item = input('Enter item name: \n')
-            price = float(input('Enter the item price: \n'))
-            quantity = int(input('Enter the item quantity: \n'))
-            shopping_cart.append(ItemToPurchase(item, price, quantity))
+    # Takes input from user for each item, price, and quantity
+    # Stores item objects to a list
+    for i in range(2):
+        print(f'Item {i + 1}')
+        item = input('Enter item name: \n')
+        price = float(input('Enter the item price: \n'))
+        quantity = int(input('Enter the item quantity: \n'))
+        shopping_cart.append(ItemToPurchase(item, price, quantity))
 
-        # prints the receipt
-        # Contains cost per single item, total cost per item,
-        # total costs for all items
-        print('\nRECEIPT')
-        find_total_cost(shopping_cart)
-    except ValueError:
-        raise 'Invalid Character Entered.'
+    # prints the receipt
+    # Contains cost per single item, total cost per item,
+    # total costs for all items
+    print('\nRECEIPT')
+    find_total_cost(shopping_cart)
 
 
 if __name__ == '__main__':
