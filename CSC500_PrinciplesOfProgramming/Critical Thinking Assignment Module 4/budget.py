@@ -5,8 +5,6 @@ import math
 
 
 def main():
-    budget = 0.00
-    user_input = ''
     expenses = []
     total_expenses = 0.00
 
