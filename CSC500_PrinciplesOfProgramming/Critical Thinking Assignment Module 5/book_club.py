@@ -1,5 +1,5 @@
 # Name: Tobias Boggess
-# Date: November 7, 2022
+# Date: November 7, 2022,
 # Purpose: Simple program to decide the number of points someone
 # earns during a month of purchasing book.
 
