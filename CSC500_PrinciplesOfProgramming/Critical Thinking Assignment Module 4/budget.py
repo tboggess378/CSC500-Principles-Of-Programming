@@ -15,13 +15,15 @@ def main():
             budget = float(input('Budget must be greater than zero. Enter budget for month: '))
 
         # Get expenses for the month
-        user_input = input('Enter expense amount or (\'q\', \'Q\', \'quit\', \'Quit\') to exit: ')
-        while (user_input not in ['q', 'Q', 'quit', 'Quit']) or (float(user_input) > 0.00):
+        user_input = input('Enter an expense (must have at least one expense): ')
+        while float(user_input) > 0.00:
             expenses.append(float(user_input))
             total_expenses += float(user_input)
             user_input = input('Enter expense amount or (\'q\', \'Q\', \'quit\', \'Quit\') to exit: ')
             if user_input in ['q', 'Q', 'quit', 'Quit']:
                 break
+        else:
+            print('Negative value entered. Expense amount must be greater than 0.')
 
         # Print output of total expenses, over or under budget, and by how much
         print(f'Total expenses: ${total_expenses:.2f}')
