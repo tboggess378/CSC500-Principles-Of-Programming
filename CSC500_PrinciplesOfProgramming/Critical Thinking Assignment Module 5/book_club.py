@@ -25,7 +25,7 @@ def main():
             raise ValueError()
 
         # prints how many points are awarded based on user input
-        print(f'Points awarded this month: {points}')
+        print(f'Points awarded this month: {points} points')
     except ValueError:
         print('Non-integer or negative was entered.')
 
