@@ -1,10 +1,11 @@
 class ItemToPurchase:
     # Inputs: name, price, quantity
     # Defaults: name = none, price = 0.00, quantity = 0
-    def __init__(self, item_name='none', item_price=0.00, item_quantity=0):
+    def __init__(self, item_name='none', item_price=0.00, item_quantity=0, item_description=''):
         self._item_name = item_name
         self._item_price = item_price
         self._item_quantity = item_quantity
+        self._item_description = item_description
 
     # Gets item name
     @property
@@ -20,6 +21,11 @@ class ItemToPurchase:
     @property
     def item_quantity(self):
         return self._item_quantity
+
+    # Gets item description
+    @property
+    def item_description(self):
+        return self._item_description
 
     # Sets item name
     @item_name.setter
@@ -44,6 +50,14 @@ class ItemToPurchase:
             self._item_quantity = quantity
         else:
             raise ValueError('Item quantity must be greater than 0 to purchase.')
+
+    # Sets item description
+    @item_description.setter
+    def item_description(self, description):
+        if len(description) > 0:
+            self._item_description = description
+        else:
+            self._item_description = ''
 
     # Description: Prints total price per item based on quantity
     # Inputs: none
