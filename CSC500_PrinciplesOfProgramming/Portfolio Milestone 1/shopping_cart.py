@@ -21,53 +21,58 @@ class ShoppingCart:
     # Gets customer name
     @property
     def customer_name(self):
+        print('Getter for customer name called.')
         return self._customer_name
 
     # Gets current date
     @property
     def current_date(self):
+        print('Getter for current date called.')
         return self._current_date
 
     # Gets cart_items
     @property
     def cart_items(self):
+        print('Getter for cart items called.')
         return self._cart_items
 
     # Sets customer name
     @customer_name.setter
-    def customer_name(self, customer_name):
-        print('Set customer name worked.')
-        self._customer_name = customer_name
+    def customer_name(self, name):
+        print('Setter for customer name called.')
+        self._customer_name = name
 
     # Sets current date
     @current_date.setter
-    def current_date(self, current_date):
-        print('Set current date worked.')
-        self._current_date = current_date
+    def current_date(self, date):
+        print('Setter for current date called.')
+        self._current_date = date
 
     # Sets cart_items list
     @cart_items.setter
-    def cart_items(self, cart_items):
-        print('Set cart items worked.')
-        self._cart_items = cart_items
+    def cart_items(self, cart):
+        print('Setter for cart items called.')
+        self._cart_items = cart
 
     # Inputs: item
     # Outputs: None
     # Purpose: Add item to cart
     def add_item(self, item):
         items = self._cart_items
+        found_in_cart = False
 
         # Updates quantity if item is already in list
         for i in range(len(items)):
             if items[i].item_name == item.item_name and \
                     items[i].item_price == item.item_price and \
                     items[i].item_description == item.item_description:
-                # self.modify_item(item)
+                found_in_cart = True
+                self.modify_item(item)
                 break
-            # Adds item to cart if similar item is not in cart already
-            else:
-                self._cart_items.append(item)
-                break
+        # Adds item to cart if similar item is not in cart already
+        if not found_in_cart:
+            self._cart_items.append(item)
+        print(self._cart_items)
 
     # Inputs: item_name (ItemToPurchase object)
     # Outputs: None
@@ -99,7 +104,7 @@ class ShoppingCart:
     def modify_item(self, item):
         try:
             # Gets index of cart item that matches the item given
-            items = self._cart_items[:]
+            items = self._cart_items
             idx = -1
 
             # Gets index for item in shopping cart that matches item given
