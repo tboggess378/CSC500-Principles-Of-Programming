@@ -33,7 +33,7 @@ def print_menu(cart):
             description = input('Enter item description: \n')
             cart.add_item(ItemToPurchase(item, price, quantity, description))
         elif choice == 'r':
-            item = input('What item would you like removed: ')
+            item = ItemToPurchase(input('What item would you like removed: '))
             cart.remove_item(item)
         elif choice == 'c':
             item = ItemToPurchase(input('Change quantity for what item: '))
