@@ -11,39 +11,44 @@ class ShoppingCart:
     # Defaults: Customer Name: None
     #           Current Date: January 1, 2020
     #           Cart Items: Empty List
-    def __init__(self, customer_name=None, current_date='January 1, 2020', cart_items=[]):
-        self._customer_name = customer_name
-        self._current_date = current_date
+    def __init__(self, customer_name=None, current_date='January 1, 2020', cart_items=None):
+        if cart_items is None:
+            cart_items = []
+        self._customer_name = customer_name.upper()
+        self._current_date = current_date.upper()
         self._cart_items = cart_items
 
-    # Getter for customer name
+    # Gets customer name
     @property
     def customer_name(self):
         return self._customer_name
 
-    # Getter for current date
+    # Gets current date
     @property
     def current_date(self):
         return self._current_date
 
-    # Getter for cart_items
+    # Gets cart_items
     @property
     def cart_items(self):
         return self._cart_items
 
-    # Setter for customer name
+    # Sets customer name
     @customer_name.setter
     def customer_name(self, customer_name):
+        print('Set customer name worked.')
         self._customer_name = customer_name
 
-    # Setter for current date
+    # Sets current date
     @current_date.setter
     def current_date(self, current_date):
+        print('Set current date worked.')
         self._current_date = current_date
 
-    # Setter for cart_items list
+    # Sets cart_items list
     @cart_items.setter
     def cart_items(self, cart_items):
+        print('Set cart items worked.')
         self._cart_items = cart_items
 
     # Inputs: item
@@ -57,7 +62,7 @@ class ShoppingCart:
             if items[i].item_name == item.item_name and \
                     items[i].item_price == item.item_price and \
                     items[i].item_description == item.item_description:
-                self.modify_item(item)
+                # self.modify_item(item)
                 break
             # Adds item to cart if similar item is not in cart already
             else:
@@ -105,16 +110,22 @@ class ShoppingCart:
 
             # Based on index, check the following
             if idx >= 0:
-                # If default values, don't change anything
+                # If default values, add item
                 if (items[idx].item_price == 0.00) and \
                         (items[idx].item_quantity == 0) and \
                         (items[idx].item_description == ''):
+                    # price = float(input('Enter the item price: \n'))
+                    # quantity = int(input('Enter the item quantity: \n'))
+                    # description = input('Enter item description: \n')
+                    # self.add_item(ItemToPurchase(item.item_name, price, quantity, description))
                     return
+
                 # Update price, quantity, description given user input
                 else:
                     items[idx].item_price = float(input('Enter item price: '))
                     items[idx].item_quantity = int(input('Enter item quantity to purchase: '))
                     items[idx].item_description = input('Enter item description: ')
+
             # If item is not found in shopping cart raise a value error
             else:
                 raise ValueError
@@ -151,7 +162,7 @@ class ShoppingCart:
     # Purpose: Basic receipt for user
     def print_total(self):
         # Outputs Name of customer and the date supplied
-        print(f'{self._customer_name.upper()}\'s Shopping Cart - {self._current_date}')
+        print(f'{self._customer_name}\'s Shopping Cart - {self._current_date}')
 
         # Checks if cart is empty
         if len(self._cart_items) > 0:

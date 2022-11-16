@@ -27,28 +27,34 @@ def print_menu(cart):
         choice = input('Choose an option: ')
 
         if choice == 'a':
-            item = input('Enter item name: \n')
+            item = input('\nEnter item name: \n')
             price = float(input('Enter the item price: \n'))
             quantity = int(input('Enter the item quantity: \n'))
             description = input('Enter item description: \n')
             cart.add_item(ItemToPurchase(item, price, quantity, description))
+            print()
         elif choice == 'r':
-            item = ItemToPurchase(input('What item would you like removed: '))
+            item = ItemToPurchase(input('\nWhat item would you like removed: '))
             cart.remove_item(item)
+            print()
         elif choice == 'c':
-            item = ItemToPurchase(input('Change quantity for what item: '))
+            item = ItemToPurchase(input('\nChange quantity for what item: '))
             cart.modify_item(item)
+            print()
         elif choice == 'i':
-            print(f'OUTPUT ITEMS\' DESCRIPTIONS')
+            print(f'\nOUTPUT ITEMS\' DESCRIPTIONS')
             cart.print_descriptions()
+            print()
         elif choice == 'o':
-            print(f'OUTPUT SHOPPING CART')
+            print(f'\nOUTPUT SHOPPING CART')
             cart.print_total()
+            print()
         elif choice == 'q':
-            print(f'QUITING')
+            print(f'\nQUITING')
             break
         else:
-            print('Must be a character described in menu.')
+            print('\nMust be a character described in menu.')
+            print()
 
 
 def main():
