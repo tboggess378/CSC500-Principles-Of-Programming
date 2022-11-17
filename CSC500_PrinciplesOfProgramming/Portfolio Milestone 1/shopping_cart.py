@@ -72,7 +72,6 @@ class ShoppingCart:
         # Adds item to cart if similar item is not in cart already
         if not found_in_cart:
             self._cart_items.append(item)
-        print(self._cart_items)
 
     # Inputs: item_name (ItemToPurchase object)
     # Outputs: None
