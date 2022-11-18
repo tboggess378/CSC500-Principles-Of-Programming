@@ -1,3 +1,10 @@
+# Name: Tobias Boggess
+# Date: November 18, 2022,
+# Purpose: From a menu, a user can choose an option to add an item, change
+# an item, remove an item, or output a receipt, or output descriptions of the
+# items in the shopping cart.
+
+
 from shopping_cart_item import *
 from shopping_cart import *
 
@@ -15,8 +22,13 @@ def find_total_cost(shopping_cart):
     print(f'Total: ${total_cost:.2f}')
 
 
+# Shows a menu for user to add an item, remove an item,
+# change an item (price, quantity, description),
+# print outputs of item descriptions, print receipt for all items,
+# and exit out of the program
 def print_menu(cart):
     while True:
+        # Menu to Choose an option from
         print(f'MENU')
         print(f'a - Add item to cart')
         print(f'r - Remove item from cart')

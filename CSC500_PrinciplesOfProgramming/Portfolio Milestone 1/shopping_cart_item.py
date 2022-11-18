@@ -1,3 +1,9 @@
+# Name: Tobias Boggess
+# Date: November 18, 2022
+# Purpose: Creates a new ItemToPurchase object and adds the name, price,
+# quantity, and description to a customers shopping cart
+
+
 class ItemToPurchase:
     # Inputs: name, price, quantity
     # Defaults: name = none, price = 0.00, quantity = 0
