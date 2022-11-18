@@ -70,6 +70,7 @@ class ShoppingCart:
                     items[i].item_price == item.item_price and \
                     items[i].item_description == item.item_description:
                 found_in_cart = True
+                print('Item found in cart please re-enter price, quantity, and description.\n')
                 self.modify_item(item)
                 break
         # Adds item to cart if similar item is not in cart already
@@ -121,10 +122,14 @@ class ShoppingCart:
                 if (items[idx].item_price == 0.00) and \
                         (items[idx].item_quantity == 0) and \
                         (items[idx].item_description == ''):
-                    price = float(input('Enter the item price: \n'))
-                    quantity = int(input('Enter the item quantity: \n'))
-                    description = input('Enter item description: \n')
-                    self.add_item(ItemToPurchase(item.item_name, price, quantity, description))
+                    print('Please update price, quantity, and description for item.')
+                    try:
+                        items[idx].item_price = float(input('Enter the item price: \n'))
+                        items[idx].item_quantity = int(input('Enter the item quantity: \n'))
+                    except ValueError:
+                        print('Invalid character or price/quantity found.')
+                        self.modify_item(item)
+                    items[idx].item_description = input('Enter item description: \n')
 
                 # Update price, quantity, description given user input
                 else:
