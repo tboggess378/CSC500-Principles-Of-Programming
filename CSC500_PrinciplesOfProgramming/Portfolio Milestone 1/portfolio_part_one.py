@@ -44,7 +44,7 @@ def print_menu(cart):
                 price = float(input('Enter the item price: \n'))
                 quantity = int(input('Enter the item quantity: \n'))
             except ValueError:
-                print('Found invalid character or price/quantity value.')
+                print('Found invalid character or invalid price/quantity value.')
                 break
             description = input('Enter item description: \n')
             cart.add_item(ItemToPurchase(item, price, quantity, description))
