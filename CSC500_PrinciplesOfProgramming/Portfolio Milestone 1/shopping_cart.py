@@ -14,44 +14,47 @@ class ShoppingCart:
     def __init__(self, customer_name=None, current_date='January 1, 2020', cart_items=None):
         if cart_items is None:
             cart_items = []
-        self._customer_name = customer_name.upper()
-        self._current_date = current_date.upper()
+
+        if len(customer_name) > 0:
+            self._customer_name = customer_name.upper()
+        else:
+            self._customer_name = 'none'
+
+        if len(current_date) > 0:
+            self._current_date = current_date.upper()
+        else:
+            self._current_date = 'January 1, 2020'
+
         self._cart_items = cart_items
 
     # Gets customer name
     @property
     def customer_name(self):
-        print('Getter for customer name called.')
         return self._customer_name
 
     # Gets current date
     @property
     def current_date(self):
-        print('Getter for current date called.')
         return self._current_date
 
     # Gets cart_items
     @property
     def cart_items(self):
-        print('Getter for cart items called.')
         return self._cart_items
 
     # Sets customer name
     @customer_name.setter
     def customer_name(self, name):
-        print('Setter for customer name called.')
         self._customer_name = name
 
     # Sets current date
     @current_date.setter
     def current_date(self, date):
-        print('Setter for current date called.')
         self._current_date = date
 
     # Sets cart_items list
     @cart_items.setter
     def cart_items(self, cart):
-        print('Setter for cart items called.')
         self._cart_items = cart
 
     # Inputs: item
