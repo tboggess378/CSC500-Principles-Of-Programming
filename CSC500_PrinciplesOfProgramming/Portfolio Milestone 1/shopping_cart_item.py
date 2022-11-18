@@ -44,18 +44,24 @@ class ItemToPurchase:
     # Sets item price
     @item_price.setter
     def item_price(self, price):
-        if price > 0:
-            self._item_price = price
-        else:
-            raise ValueError('Item price must be greater than 0.')
+        try:
+            if price > 0:
+                self._item_price = price
+            else:
+                raise ValueError('Item price must be greater than 0.')
+        except ValueError:
+            print('Invalid character or item price found.')
 
     # Sets item quantity
     @item_quantity.setter
     def item_quantity(self, quantity):
-        if quantity > 0:
-            self._item_quantity = quantity
-        else:
-            raise ValueError('Item quantity must be greater than 0 to purchase.')
+        try:
+            if quantity > 0:
+                self._item_quantity = quantity
+            else:
+                raise ValueError('Item quantity must be greater than 0 to purchase.')
+        except ValueError:
+            print('Invalid quantity or character detected.')
 
     # Sets item description
     @item_description.setter

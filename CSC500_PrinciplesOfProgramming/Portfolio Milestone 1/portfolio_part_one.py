@@ -40,8 +40,12 @@ def print_menu(cart):
 
         if choice == 'a':
             item = input('\nEnter item name: \n')
-            price = float(input('Enter the item price: \n'))
-            quantity = int(input('Enter the item quantity: \n'))
+            try:
+                price = float(input('Enter the item price: \n'))
+                quantity = int(input('Enter the item quantity: \n'))
+            except ValueError:
+                print('Found invalid character or price/quantity value.')
+                break
             description = input('Enter item description: \n')
             cart.add_item(ItemToPurchase(item, price, quantity, description))
             print()
