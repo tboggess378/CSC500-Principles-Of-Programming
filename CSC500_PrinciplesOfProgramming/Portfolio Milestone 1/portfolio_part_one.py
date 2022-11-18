@@ -5,7 +5,7 @@
 # items in the shopping cart.
 
 
-from shopping_cart_item import *
+from shopping_cart import *
 from shopping_cart import *
 
 
