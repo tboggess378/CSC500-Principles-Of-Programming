@@ -94,6 +94,8 @@ def main():
     # Shopping cart to contain all items to purchase
     name = input('Enter name: ')
     date = input('Enter date: ')
+    print(f'Customer name: {name}')
+    print(f'Today\'s date: {date}')
     cart = ShoppingCart(name, date)
     print_menu(cart)
 
