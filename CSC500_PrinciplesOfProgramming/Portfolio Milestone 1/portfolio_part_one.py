@@ -38,36 +38,53 @@ def print_menu(cart):
         print(f'q - Quit')
         choice = input('Choose an option: ')
 
+        # Add item to cart
         if choice == 'a':
-            item = input('\nEnter item name: \n')
-            try:
-                price = float(input('Enter the item price: \n'))
-                quantity = int(input('Enter the item quantity: \n'))
-            except ValueError:
-                print('Found invalid character or invalid price/quantity value.')
-                break
-            description = input('Enter item description: \n')
-            cart.add_item(ItemToPurchase(item, price, quantity, description))
+            # Create new item and set name for item
+            item = ItemToPurchase()
+            item.set_item_name(input('\nEnter item name: \n'))
+
+            # Set item price and quantity
+            item.set_item_price(input('Enter the item price: \n'))
+            item.set_item_quantity(input('Enter the item quantity: \n'))
+
+            # Add a description and add item to shopping cart list
+            item.set_item_description(input('Enter item description: \n'))
+            cart.add_item(item)
             print()
+
+        # Remove an item from the cart
         elif choice == 'r':
-            item = ItemToPurchase(input('\nWhat item would you like removed: '))
+            # Get item name to remove from cart
+            item = ItemToPurchase()
+            item.set_item_name(input('\nEnter item to remove: '))
             cart.remove_item(item)
             print()
+
+        # Change quantity of item in cart
         elif choice == 'c':
-            item = ItemToPurchase(input('\nChange quantity for what item: '))
+            item = ItemToPurchase(input('\nEnter item to change quantity: '))
             cart.modify_item(item)
             print()
+
+        # Print descriptions of items in shopping cart
         elif choice == 'i':
             print(f'\nOUTPUT ITEMS\' DESCRIPTIONS')
             cart.print_descriptions()
             print()
+
+        # Print shopping cart receipt
         elif choice == 'o':
             print(f'\nOUTPUT SHOPPING CART')
             cart.print_total()
             print()
+
+        # Quits program
         elif choice == 'q':
             print(f'\nQUITING')
             break
+
+        # If an invalid character is found output menu again and ask for valid input
         else:
             print('\nMust be a character described in menu.')
             print()

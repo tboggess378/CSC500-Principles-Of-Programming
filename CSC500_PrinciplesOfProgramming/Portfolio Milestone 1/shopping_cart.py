@@ -11,57 +11,60 @@ class ShoppingCart:
     # Defaults: Customer Name: None
     #           Current Date: January 1, 2020
     #           Cart Items: Empty List
-    def __init__(self, customer_name=None, current_date='January 1, 2020', cart_items=None):
+    def __init__(self, customer_name='none', current_date='January 1, 2020', cart_items=None):
         if cart_items is None:
             cart_items = []
 
         if len(customer_name) > 0:
-            self._customer_name = customer_name.upper()
+            self.customer_name = customer_name.upper()
         else:
-            self._customer_name = 'none'
+            self.customer_name = 'none'
 
         if len(current_date) > 0:
-            self._current_date = current_date.upper()
+            self.current_date = current_date.upper()
         else:
-            self._current_date = 'January 1, 2020'
+            self.current_date = 'January 1, 2020'
 
-        self._cart_items = cart_items
+        self.cart_items = cart_items
 
     # Gets customer name
-    @property
-    def customer_name(self):
-        return self._customer_name
+    def get_customer_name(self):
+        return self.customer_name
 
     # Gets current date
-    @property
-    def current_date(self):
-        return self._current_date
+    def get_current_date(self):
+        return self.current_date
 
     # Gets cart_items
-    @property
-    def cart_items(self):
-        return self._cart_items
+    def get_cart_items(self):
+        return self.cart_items
 
     # Sets customer name
-    @customer_name.setter
-    def customer_name(self, name):
-        self._customer_name = name
+    def set_customer_name(self, name):
+        if len(name) > 0:
+            self.customer_name = name.upper()
+        else:
+            self.customer_name = 'none'
 
     # Sets current date
-    @current_date.setter
-    def current_date(self, date):
-        self._current_date = date
+    def set_current_date(self, date):
+        if len(date) > 0:
+            self.current_date = date
+        else:
+            self.current_date = 'January 1, 2020'
 
     # Sets cart_items list
-    @cart_items.setter
-    def cart_items(self, cart):
-        self._cart_items = cart
+    def set_cart_items(self, cart):
+        if len(cart) > 0:
+            self.cart_items.append(cart)
+        else:
+            self.cart_items = []
 
     # Inputs: item
     # Outputs: None
     # Purpose: Add item to cart
     def add_item(self, item):
-        items = self._cart_items
+        items = self.get_cart_items()
         found_in_cart = False
 
         # Updates quantity if item is already in list
@@ -70,12 +73,12 @@ class ShoppingCart:
                     items[i].item_price == item.item_price and \
                     items[i].item_description == item.item_description:
                 found_in_cart = True
-                print('Item found in cart please re-enter price, quantity, and description.\n')
+                print('Item found in cart please modify item quantity.\n')
                 self.modify_item(item)
                 break
         # Adds item to cart if similar item is not in cart already
         if not found_in_cart:
-            self._cart_items.append(item)
+            self.cart_items.append(item)
 
     # Inputs: item_name (ItemToPurchase object)
     # Outputs: None
@@ -83,7 +86,7 @@ class ShoppingCart:
     def remove_item(self, item_name):
         try:
             # Store items and traverse item list
-            items = self._cart_items
+            items = self.get_cart_items()
             item_in_cart = False
 
             # Removes item from cart
@@ -107,7 +110,7 @@ class ShoppingCart:
     def modify_item(self, item):
         try:
             # Gets index of cart item that matches the item given
-            items = self._cart_items
+            items = self.get_cart_items()
             idx = -1
 
             # Gets index for item in shopping cart that matches item given
@@ -124,21 +127,21 @@ class ShoppingCart:
                         (items[idx].item_description == ''):
                     print('Please update price, quantity, and description for item.')
                     try:
-                        items[idx].item_price = float(input('Enter the item price: \n'))
-                        items[idx].item_quantity = int(input('Enter the item quantity: \n'))
+                        items[idx].set_item_price(float(input('Enter the item price: \n')))
+                        items[idx].set_item_quantity(int(input('Enter the item quantity: \n')))
                     except ValueError:
                         print('Invalid character or price/quantity found.')
                         self.modify_item(item)
-                    items[idx].item_description = input('Enter item description: \n')
+                    items[idx].set_item_description(input('Enter item description: \n'))
 
                 # Update price, quantity, description given user input
                 else:
                     try:
-                        items[idx].item_price = float(input('Enter item price: '))
+                        # items[idx].set_item_price(float(input('Enter item price: ')))
                         items[idx].item_quantity = int(input('Enter item quantity to purchase: '))
                     except ValueError:
                         print('Invalid character or invalid price/quantity.')
-                    items[idx].item_description = input('Enter item description: ')
+                    # items[idx].set_item_description(input('Enter item description: '))
 
             # If item is not found in shopping cart raise a value error
             else:
@@ -155,8 +158,8 @@ class ShoppingCart:
         total_items = 0
 
         # Get quantities from cart items and update total_items
-        for item in self._cart_items:
-            total_items += item.item_quantity
+        for item in self.cart_items:
+            total_items += item.get_item_quantity()
         return total_items
 
     # Inputs: None
@@ -167,8 +170,8 @@ class ShoppingCart:
         total_cost = 0.00
 
         # Get total price from cart items
-        for item in self._cart_items:
-            total_cost += (item.item_quantity * item.item_price)
+        for item in self.get_cart_items():
+            total_cost += (item.get_item_quantity() * item.get_item_price())
         return total_cost
 
     # Inputs: None
@@ -176,15 +179,15 @@ class ShoppingCart:
     # Purpose: Basic receipt for user
     def print_total(self):
         # Outputs Name of customer and the date supplied
-        print(f'{self._customer_name}\'s Shopping Cart - {self._current_date}')
+        print(f'{self.get_customer_name()}\'s Shopping Cart - {self.get_current_date()}')
 
         # Checks if cart is empty
-        if len(self._cart_items) > 0:
+        if len(self.get_cart_items()) > 0:
             # Prints number of items in cart
             print(f'Number of items: {self.get_num_items_in_cart()}')
 
             # Prints price per item and quantity of each item
-            for item in self._cart_items:
+            for item in self.get_cart_items():
                 item.print_item_cost()
 
             # Prints total cost from items in cart
@@ -198,14 +201,14 @@ class ShoppingCart:
     # Purpose: Prints item descriptions to user
     def print_descriptions(self):
         # Prints customer name and current date
-        print(f'{self._customer_name}\'s Shopping Cart - {self._current_date}')
+        print(f'{self.get_customer_name()}\'s Shopping Cart - {self.get_current_date()}')
 
         # Gets item descriptions and prints it to user
-        if len(self._cart_items) > 0:
+        if len(self.get_cart_items()) > 0:
             print(f'Item Descriptions')
 
             # Prints cart items with their respective descriptions
-            for item in self._cart_items:
-                print(f'{item.item_name}: {item.item_description}')
+            for item in self.get_cart_items():
+                print(f'{item.get_item_name()}: {item.get_item_description()}')
         else:
             print(f'SHOPPING CART IS EMPTY.')
