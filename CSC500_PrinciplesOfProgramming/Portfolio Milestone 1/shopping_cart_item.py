@@ -45,8 +45,7 @@ class ItemToPurchase:
                 elif float(price) == 0:
                     self.item_price = 0
                     self.set_item_quantity('0')
-                    print('Quantity set to 0 since price is 0.'
-                          '')
+                    print('Quantity set to 0 since price is 0.')
                 else:
                     raise ValueError()
             else:
