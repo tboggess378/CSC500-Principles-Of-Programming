@@ -1,0 +1,1 @@
+This module includes a python script to convert webscrape jobs from indeed.com to say salary, job title, and company name and outputs the result to a json file.

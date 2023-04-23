@@ -1,0 +1,31 @@
+Root "/Users/tbogg/Desktop/Acro Def Project" created/modified: Thu Aug 25 19:54:10 2022
+|
+\-> Directory ".idea" created/modified: Thu Aug 25 19:54:57 2022
+|
+\-> File "acrodef.sqlite" created/modified: Thu Aug 25 11:17:06 2022
+|
+\-> File "ACRONYM MASTER.txt" created/modified: Mon Aug 15 09:53:48 2022
+|
+\-> File "displayAcroDef.py" created/modified: Thu Aug 25 17:11:48 2022
+|
+\-> File "saveAcroDef.py" created/modified: Mon Aug 15 09:22:10 2022
+|
+\-> Directory "/Users/tbogg/Desktop/Acro Def Project\.idea" created/modified: Thu Aug 25 19:54:57 2022
+|
+\--> Directory "inspectionProfiles" created/modified: Thu Aug 25 19:56:23 2022
+|
+\--> File ".gitignore" created/modified: Thu Aug 25 19:55:08 2022
+|
+\--> File ".name" created/modified: Sat Sep 10 13:47:35 2022
+|
+\--> File "Acro Def Project.iml" created/modified: Thu Aug 25 19:56:23 2022
+|
+\--> File "misc.xml" created/modified: Thu Aug 25 19:54:57 2022
+|
+\--> File "modules.xml" created/modified: Thu Aug 25 19:56:23 2022
+|
+\--> File "workspace.xml" created/modified: Thu Aug 25 19:54:57 2022
+|
+\--> Directory "/Users/tbogg/Desktop/Acro Def Project\.idea\inspectionProfiles" created/modified: Thu Aug 25 19:56:23 2022
+|
+\---> File "profiles_settings.xml" created/modified: Thu Aug 25 19:56:23 2022
