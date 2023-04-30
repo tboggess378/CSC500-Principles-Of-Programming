@@ -1,1 +1,1 @@
-This module includes a python script to convert webscrape jobs from indeed.com to say salary, job title, and company name and outputs the result to a json file.
+This module includes a python script to display a tree of the files, directories under a root directory supplied by the user. Current libraries used are os and time modules.
