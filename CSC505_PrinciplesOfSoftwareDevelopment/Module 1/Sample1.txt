@@ -1,31 +1,15 @@
-Root "/Users/tbogg/Desktop/Acro Def Project" created/modified: Thu Aug 25 19:54:10 2022
+Root "/Users/tbogg/Desktop/Grad School CSU Global/CSC505 Principles of Software Development/Module 3" created/modified: Fri Apr 14 20:35:47 2023
 |
-\-> Directory ".idea" created/modified: Thu Aug 25 19:54:57 2022
+\-> File "Boggess_Mobile_App.py" created/modified: Sun May  7 17:01:49 2023
 |
-\-> File "acrodef.sqlite" created/modified: Thu Aug 25 11:17:06 2022
+\-> File "Flow Part One.jpg" created/modified: Sun May  7 16:58:29 2023
 |
-\-> File "ACRONYM MASTER.txt" created/modified: Mon Aug 15 09:53:48 2022
+\-> File "Flow Part Two.jpg" created/modified: Sun May  7 16:58:54 2023
 |
-\-> File "displayAcroDef.py" created/modified: Thu Aug 25 17:11:48 2022
+\-> File "Mobile Application Design First Draft.jpg" created/modified: Sun May  7 15:31:10 2023
 |
-\-> File "saveAcroDef.py" created/modified: Mon Aug 15 09:22:10 2022
+\-> File "Module 3.zip" created/modified: Sun May  7 17:02:08 2023
 |
-\-> Directory "/Users/tbogg/Desktop/Acro Def Project\.idea" created/modified: Thu Aug 25 19:54:57 2022
+\-> File "Shopping List Mobile App Diagram.jpg" created/modified: Sun May  7 14:41:07 2023
 |
-\--> Directory "inspectionProfiles" created/modified: Thu Aug 25 19:56:23 2022
-|
-\--> File ".gitignore" created/modified: Thu Aug 25 19:55:08 2022
-|
-\--> File ".name" created/modified: Sat Sep 10 13:47:35 2022
-|
-\--> File "Acro Def Project.iml" created/modified: Thu Aug 25 19:56:23 2022
-|
-\--> File "misc.xml" created/modified: Thu Aug 25 19:54:57 2022
-|
-\--> File "modules.xml" created/modified: Thu Aug 25 19:56:23 2022
-|
-\--> File "workspace.xml" created/modified: Thu Aug 25 19:54:57 2022
-|
-\--> Directory "/Users/tbogg/Desktop/Acro Def Project\.idea\inspectionProfiles" created/modified: Thu Aug 25 19:56:23 2022
-|
-\---> File "profiles_settings.xml" created/modified: Thu Aug 25 19:56:23 2022
+\-> File "Shopping List Prototype.docx" created/modified: Sat May  6 14:32:37 2023
