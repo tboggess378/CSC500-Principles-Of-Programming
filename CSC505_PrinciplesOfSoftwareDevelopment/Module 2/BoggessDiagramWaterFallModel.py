@@ -7,6 +7,7 @@
 # behavior as outlined in the Boggess Diagram.jpg file found within this folder.
 
 def print_modified_waterfall(diagram_name):
+
     # Prints the diagram line by line for one project
     if diagram_name in f'Boggess Diagram':
         print(f'Communication')
@@ -20,12 +21,12 @@ def print_modified_waterfall(diagram_name):
         print(f'Communication')
         print(f'Deployment')
         print(f'Steps for single task deployment: 10')
-        return 1
+        return True
 
     # Display the name of the diagram and determine it was not found
     else:
         print(f'{diagram_name} not found.')
-        return 0
+        return False
 
 
 def main():
@@ -45,8 +46,11 @@ def main():
         # gather the number of runs to break out of loop
         num_runs += 1
 
-    else:
-        print('No matches found. Please run the program again.')
+        if successful:
+            print(f'\n\nMatch found. Exiting program.')
+            break
+        else:
+            print(f'\nNo match found. Please input another diagram name.\n')
 
 
 if __name__ == "__main__":
