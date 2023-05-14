@@ -22,7 +22,7 @@ def display_times(in_directory):
 
             # Each of the following is another subdirectory or file under the root directory
             num_tabs = num_tabs + 1
-            str_tab = f"\\{'-' * num_tabs}>"
+            str_tab = f'\\{"-" * num_tabs}>'
 
             # Add each sub-directory to the root directory string
             for directory in dirs:
