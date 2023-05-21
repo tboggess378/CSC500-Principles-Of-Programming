@@ -53,7 +53,7 @@ def print_description():
     # Description for the format of actors and their associated use cases
     print(f'Displays some use cases for each actor in the following format.')
     print(f'Actor: <actor>')
-    print(f'\tUse Cases: <use case>, <use case>, <use case>, ...\n\n')
+    print(f'\tUse Cases: \n\t\t<use case> \n\t\t<use case> \n\t\t<use case> \n\t\t...\n\n')
 
 
 def main():
