@@ -8,6 +8,8 @@ def travel_a_word(original_word, test_word):
     # create list for previous letters and set the distance to zero
     prev_letters = list()
     current_distance = 0
+    original_word = original_word.lower()
+    test_word = test_word.lower()
 
     # iterate through the letters in the test word and the original word
     for original_letter, test_letter in zip(original_word, test_word):
