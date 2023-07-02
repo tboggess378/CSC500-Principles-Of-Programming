@@ -101,6 +101,58 @@ def quick_sort(arr, start_idx, end_idx):
     quick_sort(arr, high + 1, end_idx)
 
 
+def merge(arr, i, j, k):
+    # preallocate the size of the temp array
+    size = k - i + 1
+    merged = [0] * size
+
+    # determine left, right, and merged position
+    position = 0
+    left = i
+    right = j + 1
+
+    # add elements depending on value in jth position
+    while left <= j and right <= k:
+        if arr[left] <= arr[right]:
+            merged[position] = arr[left]
+            left += 1
+        else:
+            merged[position] = arr[right]
+            right += 1
+
+        position += 1
+
+    # add remaining elements from left array to merged array
+    while left <= j:
+        merged[position] = arr[left]
+        left += 1
+        position += 1
+
+    # add remaining elements from right array to merged array
+    while right <= k:
+        merged[position] = arr[right]
+        right += 1
+        position += 1
+
+    # rearrange elements from the temp array
+    for position in range(size):
+        arr[i + position] = merged[position]
+
+
+def merge_sort(arr, i, k):
+    # initialize j
+    j = 0
+
+    # continue until i is greater than the size of the array
+    if i < k:
+        j = (i + k) // 2
+
+        merge_sort(arr, i, j)
+        merge_sort(arr, j + 1, k)
+
+        merge(arr, i, j, k)
+
+
 def main():
     # create array with random numbers
     # initial_arr = random.sample(range(10000), 500)
@@ -180,6 +232,23 @@ quick_sort(quick_sort_copy, 0, len(quick_sort_copy)-1)
                                      number=500,
                                      repeat=5)
 
+    MERGE_SORT_SETUP = '''
+import copy
+import random
+from __main__ import merge_sort
+initial_arr = random.sample(range(10000), 500)
+merge_sort_copy = copy.deepcopy(initial_arr)    
+    '''
+
+    MERGE_SORT_CODE = '''
+merge_sort(merge_sort_copy, 0, len(merge_sort_copy) - 1)
+    '''
+
+    merge_sort_times = timeit.repeat(setup=MERGE_SORT_SETUP,
+                                     stmt=MERGE_SORT_CODE,
+                                     number=500,
+                                     repeat=5)
+
     print(f'{"Sorting Algorithm":<25s}{"MIN":<15s}{"AVG":<15s}{"MAX":<15s}')
     print(f'{"Selection Sort":<25s}{min(selection_sort_times):<15.6f}', end='')
     print(f'{math.fsum(selection_sort_times) / len(selection_sort_times):<15.6f}', end='')
@@ -196,6 +265,10 @@ quick_sort(quick_sort_copy, 0, len(quick_sort_copy)-1)
     print(f'{"Quick Sort":<25s}{min(quick_sort_times):<15.6f}', end='')
     print(f'{math.fsum(quick_sort_times) / len(quick_sort_times):<15.6f}', end='')
     print(f'{max(quick_sort_times):<15.6f}')
+
+    print(f'{"Merge Sort":<25s}{min(merge_sort_times):<15.6f}', end='')
+    print(f'{math.fsum(merge_sort_times) / len(merge_sort_times):<15.6f}', end='')
+    print(f'{max(merge_sort_times):<15.6f}')
 
 
 if __name__ == '__main__':
