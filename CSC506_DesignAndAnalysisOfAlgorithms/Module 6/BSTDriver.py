@@ -3,6 +3,7 @@
 # Purpose: The purpose is to build a binary tree that
 
 from BinarySearchTree import BinarySearchTree
+from Node import Node
 
 
 def main():
@@ -26,7 +27,7 @@ def main():
         input_val = input(f'Enter value or \'exit\': ')
         btree = BinarySearchTree()
         while input_val != 'exit':
-            btree.insert(int(input_val))
+            btree.insert(Node(int(input_val)))
             input_val = input(f'Enter value or \'exit\': ')
 
         print(f'Custom Tree: ')
