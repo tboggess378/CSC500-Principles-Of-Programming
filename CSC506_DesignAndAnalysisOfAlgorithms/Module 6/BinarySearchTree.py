@@ -140,6 +140,8 @@ class BinarySearchTree:
             else:
                 current_node = current_node.left
 
+        return None
+
     # remove a node from the tree
     def remove_key(self, key):
         node = self.search(key)
